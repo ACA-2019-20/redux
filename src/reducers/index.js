@@ -1,24 +1,9 @@
-import { ADD, SUB, RESET } from "../actions/constants";
+import { combineReducers } from "redux";
 
-const initialState = {
-  count: 0
-};
+import countReducer from "./count";
+import countriesReducer from "./countries";
 
-export default function countReducer(state = initialState, action) {
-  switch (action.type) {
-    case ADD:
-      return {
-        count: state.count + 1
-      };
-    case SUB:
-      return {
-        count: state.count - 1
-      };
-    case RESET:
-      return {
-        count: 0
-      };
-    default:
-      return state;
-  }
-}
+export default combineReducers({
+  count: countReducer,
+  countries: countriesReducer
+});
